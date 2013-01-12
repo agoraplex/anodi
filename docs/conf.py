@@ -252,3 +252,5 @@ intersphinx_mapping = {
     , 'capsec'     : ( '../capsec'     , '../../capsec/docs/_build/html/objects.inv' )
     , 'schema'     : ( '../schema'     , '../../schema/docs/_build/html/objects.inv' )
 }
+
+autodoc_default_flags = ['members', 'undoc-members', 'special-members']
