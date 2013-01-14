@@ -17,7 +17,8 @@ def returns (annotation):
     """
     def annotate (func):
         func.__annotations__ = getattr(func, '__annotations__', {})
-        func.__annotations__['return'] = annotation
+        if not annotation is empty:
+            func.__annotations__['return'] = annotation
         return func
     return annotate
 
