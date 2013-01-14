@@ -94,9 +94,12 @@ def annotated (func=None, returns=empty):
                 func.__annotations__[name] = defaults[i][0]
 
             # prune annotations, leaving only defaults
-            func.__defaults__ = tuple((d[1]
-                                      for d in func.__defaults__
-                                      if len(d) > 1))
+            defaults = tuple((d[1]
+                              for d in func.__defaults__
+                              if len(d) > 1))
+            # use ``None`` if there are no defaults left, since that's
+            # how a function without any defaults would come out.
+            func.__defaults__ = defaults or None
         return func
 
     # if we were called without a ``results`` argument, then we're
