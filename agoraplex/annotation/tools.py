@@ -6,10 +6,16 @@ _typespecs = {}
 class TypeSpec (object):
     def __init__ (self, typeobj):
         self.typeobj = typeobj
+        if hasattr(self.typeobj, '__name__'):
+            self.repr = self.typeobj.__name__
+        else:
+            if isinstance(self.typeobj, basestring):
+                self.repr = self.typeobj
+            else:
+                self.repr = repr(self.typeobj)
 
     def __repr__ (self):
-        return getattr(self.typeobj, '__name__', None) \
-            or repr(self.typeobj)
+        return self.repr
 
 def typespec (t):
     if not t in _typespecs:

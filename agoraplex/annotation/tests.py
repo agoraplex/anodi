@@ -304,7 +304,7 @@ This is nop."""
 """)
 
 
-class TestTypespecHelper (object):
+class TesttypespecHelper (object):
     def test_cache (self):
         assert typespec(str) == typespec(str)
         assert typespec(str) != typespec(unicode)
@@ -320,3 +320,9 @@ class TestTypespecHelper (object):
 
     def test_iter (self):
         assert repr(typespec(iter)) == 'iter'
+
+    def test_string (self):
+        assert repr(typespec("test")) == "test"
+
+    def test_none (self):
+        assert repr(typespec(None)) == "None"
