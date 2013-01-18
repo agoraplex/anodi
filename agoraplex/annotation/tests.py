@@ -40,12 +40,12 @@ class TestAnnotatedDecorater (object):
 
     def test_with_params_with_defaults_empty_annotations (self):
         @annotated
-        def nop (a=(empty,'alpha'), b=(empty,'beta')): pass
+        def nop (a=(empty,42), b=(empty,'beta')): pass
 
         # the elements of ``__defaults__`` should match the positional
         # parameters supplied for ``a`` and ``b``.
         assert len(nop.__defaults__) == 2
-        assert nop.__defaults__[0] == 'alpha'
+        assert nop.__defaults__[0] == 42
         assert nop.__defaults__[1] == 'beta'
 
         # ``__annotations__`` should exist, but be empty
@@ -65,7 +65,7 @@ class TestAnnotatedDecorater (object):
 
     def test_with_params_with_defaults_with_annotations (self):
         @annotated
-        def nop (a=(int, 'alpha'), b=(unicode, 'beta')): pass
+        def nop (a=(int, 42), b=(unicode, 'beta')): pass
 
         # ``a`` and ``b`` should have correct annotations
         assert len(nop.__annotations__) == 2
@@ -74,7 +74,7 @@ class TestAnnotatedDecorater (object):
 
         # ``__defaults__`` should have two members, as above
         assert len(nop.__defaults__) == 2
-        assert nop.__defaults__[0] == 'alpha'
+        assert nop.__defaults__[0] == 42
         assert nop.__defaults__[1] == 'beta'
 
     def test_return_annotation_without_params_without_annotations (self):
@@ -112,11 +112,11 @@ class TestAnnotatedDecorater (object):
 
     def test_return_annotation_with_params_with_defaults_with_empty_annotations (self):
         @annotated(returns=int)
-        def nop (a=(empty,'alpha'), b=(empty,'beta')): pass
+        def nop (a=(empty,42), b=(empty,'beta')): pass
 
         # ``__defaults__`` should have two members, as above
         assert len(nop.__defaults__) == 2
-        assert nop.__defaults__[0] == 'alpha'
+        assert nop.__defaults__[0] == 42
         assert nop.__defaults__[1] == 'beta'
 
         # there should be only one annotation: ``return``
@@ -159,11 +159,11 @@ class TestReturnsDecorator (object):
 
     def test_return_annotation_with_params_with_defaults (self):
         @returns(int)
-        def nop (a='alpha', b='beta'): pass
+        def nop (a=42, b='beta'): pass
 
         # ``__defaults__`` should have two members, as above
         assert len(nop.__defaults__) == 2
-        assert nop.__defaults__[0] == 'alpha'
+        assert nop.__defaults__[0] == 42
         assert nop.__defaults__[1] == 'beta'
 
         # there should be only one annotation: ``return``
