@@ -1,4 +1,5 @@
 from agoraplex.annotation import annotated, returns, empty
+from agoraplex.annotation.tools import document
 
 # ___TODO:___ use one of the structural comparison packages to
 # validate the output (__defaults__, __annotations__) declaratively,
@@ -189,3 +190,115 @@ class TestReturnsDecorator (object):
 
         # ``__annotations__`` should exist, but be empty
         assert len(nop.__annotations__) == 0
+
+
+class TestDocstringDecorater (object):
+    def test_without_params_without_annotations_with_docstring (self):
+        @document
+        @annotated
+        def nop ():
+            """This is nop."""
+            pass
+
+        assert nop.__doc__ == """nop ()
+
+This is nop."""
+
+    def test_without_params_without_annotations (self):
+        @document
+        @annotated
+        def nop (): pass
+
+        assert nop.__doc__.startswith("""nop ()
+
+""")
+
+    def test_with_params_without_annotations (self):
+        @document
+        @annotated
+        def nop (a, b): pass
+
+        assert nop.__doc__.startswith("""nop (a, b)
+
+""")
+
+    def test_with_params_without_defaults_empty_annotations (self):
+        @document
+        @annotated
+        def nop (a=(empty,), b=(empty,)): pass
+
+        assert nop.__doc__.startswith("""nop (a, b)
+
+""")
+
+    def test_with_params_with_defaults_empty_annotations (self):
+        @document
+        @annotated
+        def nop (a=(empty,42), b=(empty,'beta')): pass
+
+        assert nop.__doc__.startswith("""nop (a=42, b='beta')
+
+""")
+
+    def test_with_params_without_defaults_with_annotations (self):
+        @document
+        @annotated
+        def nop (a=(int,), b=(unicode,)): pass
+
+        assert nop.__doc__.startswith("""nop (a:int, b:unicode)
+
+""")
+
+    def test_with_params_with_defaults_with_annotations (self):
+        @document
+        @annotated
+        def nop (a=(int, 42), b=(unicode, 'beta')): pass
+
+        assert nop.__doc__.startswith("""nop (a:int=42, b:unicode='beta')
+
+""")
+
+    def test_return_annotation_without_params_without_annotations (self):
+        @document
+        @annotated(returns=int)
+        def nop (): pass
+
+        assert nop.__doc__.startswith("""nop () -> int
+
+""")
+
+    def test_return_annotation_with_params_without_annotations (self):
+        @document
+        @annotated(returns=int)
+        def nop (a, b): pass
+
+        assert nop.__doc__.startswith("""nop (a, b) -> int
+
+""")
+
+    def test_return_annotation_with_params_without_defaults_with_empty_annotations (self):
+        @document
+        @annotated(returns=int)
+        def nop (a=(empty,), b=(empty,)): pass
+
+        assert nop.__doc__.startswith("""nop (a, b) -> int
+
+""")
+
+    def test_return_annotation_with_params_with_defaults_with_empty_annotations (self):
+        @document
+        @annotated(returns=int)
+        def nop (a=(empty,42), b=(empty,'beta')): pass
+
+        assert nop.__doc__.startswith("""nop (a=42, b='beta') -> int
+
+""")
+
+    def test_return_annotation_with_params_without_defaults_with_annotations (self):
+        @document
+        @annotated(returns=int)
+        def nop (a=(int,), b=(unicode,)): pass
+
+        assert nop.__doc__.startswith("""nop (a:int, b:unicode) -> int
+
+""")
