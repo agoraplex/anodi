@@ -1,6 +1,21 @@
 from backports import inspect
 from agoraplex.annotation import annotated, empty
 
+_typespecs = {}
+
+class TypeSpec (object):
+    def __init__ (self, typeobj):
+        self.typeobj = typeobj
+
+    def __repr__ (self):
+        return getattr(self.typeobj, '__name__', None) \
+            or repr(self.typeobj)
+
+def typespec (t):
+    if not t in _typespecs:
+        _typespecs[t] = TypeSpec(t)
+    return _typespecs[t]
+
 def document (func):
     # the backported ``inspect.signature`` does the "right thing"
     # with our annotations

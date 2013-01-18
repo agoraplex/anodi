@@ -1,5 +1,5 @@
 from agoraplex.annotation import annotated, returns, empty
-from agoraplex.annotation.tools import document
+from agoraplex.annotation.tools import document, typespec
 
 # ___TODO:___ use one of the structural comparison packages to
 # validate the output (__defaults__, __annotations__) declaratively,
@@ -302,3 +302,21 @@ This is nop."""
         assert nop.__doc__.startswith("""nop (a:int, b:unicode) -> int
 
 """)
+
+
+class TestTypespecHelper (object):
+    def test_cache (self):
+        assert typespec(str) == typespec(str)
+        assert typespec(str) != typespec(unicode)
+
+    def test_str (self):
+        assert repr(typespec(str)) == 'str'
+
+    def test_unicode (self):
+        assert repr(typespec(unicode)) == 'unicode'
+
+    def test_callable (self):
+        assert repr(typespec(callable)) == 'callable'
+
+    def test_iter (self):
+        assert repr(typespec(iter)) == 'iter'
