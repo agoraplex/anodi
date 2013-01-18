@@ -303,6 +303,39 @@ This is nop."""
 
 """)
 
+    def test_with_function_as_return_annotation (self):
+        def dummy (): pass
+
+        @document
+        @annotated(returns=dummy)
+        def nop (): pass
+
+        assert nop.__doc__.startswith("""nop () -> dummy
+
+""")
+
+    def test_with_function_as_annotation (self):
+        def dummy (): pass
+
+        @document
+        @annotated
+        def nop (f=(dummy,)): pass
+
+        assert nop.__doc__.startswith("""nop (f:dummy)
+
+""")
+
+    def test_with_function_as_default (self):
+        def dummy (): pass
+
+        @document
+        @annotated
+        def nop (f=(empty,dummy)): pass
+
+        assert nop.__doc__.startswith("""nop (f=dummy)
+
+""")
+
 
 class TesttypespecHelper (object):
     def test_cache (self):

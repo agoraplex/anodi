@@ -1,5 +1,6 @@
 from backports import inspect
 from agoraplex.annotation import annotated, empty
+import re
 
 _typespecs = {}
 
@@ -22,11 +23,22 @@ def typespec (t):
         _typespecs[t] = TypeSpec(t)
     return _typespecs[t]
 
+_re_function_repr = re.compile(r"""
+<[^\>]*
+function \s+
+(?P<name>[^\s\>]+)
+[^\>]* \>""", re.UNICODE | re.VERBOSE)
+
+
 def document (func):
     # the backported ``inspect.signature`` does the "right thing"
     # with our annotations
     sig = inspect.signature(func)
     sigstr = "%s %s" % (func.__name__, sig)
+
+    # but its stringification does the wrong thing with defaults when
+    # they're functions... (at least, according to me.)
+    sigstr = _re_function_repr.sub(r"\g<name>", sigstr)
 
     # insert the function signature into the docstring
     if func.__doc__ is None:
