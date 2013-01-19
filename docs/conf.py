@@ -253,4 +253,5 @@ intersphinx_mapping = {
     , 'schema'     : ( '../schema'     , '../../schema/docs/_build/html/objects.inv' )
 }
 
-autodoc_default_flags = ['members', 'undoc-members', 'special-members']
+autodoc_default_flags = ['members', 'undoc-members']
+add_module_names = False
