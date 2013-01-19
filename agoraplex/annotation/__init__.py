@@ -86,10 +86,12 @@ def annotated (func=None, returns=empty):
 
         defaults = func.__defaults__
         if defaults:
+            spec = inspect.getfullargspec(func)
+            # ___TODO:___ support *args, **kwargs annotation?
+
             # extract annotations
-            varnames = func.__code__.co_varnames
             nanno = len(defaults)
-            for (i, name) in enumerate(varnames[-nanno:]):
+            for (i, name) in enumerate(spec.args[-nanno:]):
                 if len(defaults[i]) < 1 or defaults[i][0] is empty:
                     continue
                 func.__annotations__[name] = defaults[i][0]

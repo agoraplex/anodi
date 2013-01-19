@@ -78,6 +78,21 @@ class TestAnnotatedDecorater (object):
         assert nop.__defaults__[0] == 42
         assert nop.__defaults__[1] == 'beta'
 
+    def test_with_params_with_defaults_with_annotations_with_vars (self):
+        @annotated
+        def nop (a=(int, 42), b=(unicode, 'beta')):
+            x=23
+
+        # ``a`` and ``b`` should have correct annotations
+        assert len(nop.__annotations__) == 2
+        assert nop.__annotations__['a'] is int
+        assert nop.__annotations__['b'] is unicode
+
+        # ``__defaults__`` should have two members, as above
+        assert len(nop.__defaults__) == 2
+        assert nop.__defaults__[0] == 42
+        assert nop.__defaults__[1] == 'beta'
+
     def test_return_annotation_without_params_without_annotations (self):
         @annotated(returns=int)
         def nop (): pass
