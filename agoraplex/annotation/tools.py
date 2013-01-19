@@ -5,6 +5,10 @@ import re
 _typenames = {}
 
 class TypeName (object):
+    """
+    Expose a `__repr__` around `typeobj` to return a (best-effort)
+    "meaningful" name (e.g., for writing function signatures).
+    """
     def __init__ (self, typeobj):
         self.typeobj = typeobj
         if hasattr(self.typeobj, '__name__'):
@@ -19,6 +23,9 @@ class TypeName (object):
         return self.repr
 
 def typename (t):
+    """
+    Caching wrapper around :class:`TypeName`.
+    """
     if not t in _typenames:
         _typenames[t] = TypeName(t)
     return _typenames[t]
@@ -31,6 +38,11 @@ function \s+
 
 
 def document (func):
+    """
+    Decorator to insert an annotated function signature into the
+    docstring.
+    """
+
     # the backported ``inspect.signature`` does the "right thing"
     # with our annotations
     sig = inspect.signature(func)
