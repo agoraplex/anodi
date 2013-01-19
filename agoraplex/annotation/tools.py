@@ -2,9 +2,9 @@ from backports import inspect
 from agoraplex.annotation import annotated, empty
 import re
 
-_typespecs = {}
+_typenames = {}
 
-class TypeSpec (object):
+class TypeName (object):
     def __init__ (self, typeobj):
         self.typeobj = typeobj
         if hasattr(self.typeobj, '__name__'):
@@ -18,10 +18,10 @@ class TypeSpec (object):
     def __repr__ (self):
         return self.repr
 
-def typespec (t):
-    if not t in _typespecs:
-        _typespecs[t] = TypeSpec(t)
-    return _typespecs[t]
+def typename (t):
+    if not t in _typenames:
+        _typenames[t] = TypeName(t)
+    return _typenames[t]
 
 _re_function_repr = re.compile(r"""
 <[^\>]*

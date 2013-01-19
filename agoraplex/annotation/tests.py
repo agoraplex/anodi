@@ -1,5 +1,5 @@
 from agoraplex.annotation import annotated, returns, empty
-from agoraplex.annotation.tools import document, typespec
+from agoraplex.annotation.tools import document, typename
 
 # ___TODO:___ use one of the structural comparison packages to
 # validate the output (__defaults__, __annotations__) declaratively,
@@ -352,25 +352,25 @@ This is nop."""
 """)
 
 
-class TesttypespecHelper (object):
+class TesttypenameHelper (object):
     def test_cache (self):
-        assert typespec(str) == typespec(str)
-        assert typespec(str) != typespec(unicode)
+        assert typename(str) == typename(str)
+        assert typename(str) != typename(unicode)
 
     def test_str (self):
-        assert repr(typespec(str)) == 'str'
+        assert repr(typename(str)) == 'str'
 
     def test_unicode (self):
-        assert repr(typespec(unicode)) == 'unicode'
+        assert repr(typename(unicode)) == 'unicode'
 
     def test_callable (self):
-        assert repr(typespec(callable)) == 'callable'
+        assert repr(typename(callable)) == 'callable'
 
     def test_iter (self):
-        assert repr(typespec(iter)) == 'iter'
+        assert repr(typename(iter)) == 'iter'
 
     def test_string (self):
-        assert repr(typespec("test")) == "test"
+        assert repr(typename("test")) == "test"
 
     def test_none (self):
-        assert repr(typespec(None)) == "None"
+        assert repr(typename(None)) == "None"
