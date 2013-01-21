@@ -219,6 +219,22 @@ class TestDocstringDecorater (object):
 
 This is nop."""
 
+    def test_without_params_without_annotations_with_indented_docstring (self):
+        @document
+        @annotated
+        def nop ():
+            """
+            This is nop.
+            """
+            pass
+
+        print(repr(nop.__doc__))
+        assert nop.__doc__ == """            nop ()
+
+
+            This is nop.
+            """
+
     def test_without_params_without_annotations (self):
         @document
         @annotated

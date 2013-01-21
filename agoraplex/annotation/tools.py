@@ -36,6 +36,8 @@ function \s+
 (?P<name>[^\s\>]+)
 [^\>]* \>""", re.UNICODE | re.VERBOSE)
 
+_re_leading_ws = re.compile(r"^ (?P<indent> [ \t]+) [^\s]+",
+                            re.UNICODE | re.VERBOSE | re.MULTILINE)
 
 def document (func):
     """
@@ -52,9 +54,19 @@ def document (func):
     # they're functions... (at least, according to me.)
     sigstr = _re_function_repr.sub(r"\g<name>", sigstr)
 
-    # insert the function signature into the docstring
+
     if func.__doc__ is None:
         func.__doc__ = ""
+    else:
+        # look at the first non-empty line to determine whether or not
+        # the docstring has leading space (i.e., indentation). We want
+        # to preserve that in the signature line.
+
+        m = _re_leading_ws.search(func.__doc__)
+        if m:
+            sigstr = m.group('indent') + sigstr
+
+    # insert the function signature into the docstring
     func.__doc__ = sigstr + "\n\n" + func.__doc__
 
     return func
