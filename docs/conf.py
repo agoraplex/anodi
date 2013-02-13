@@ -249,13 +249,37 @@ texinfo_documents = [
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
     # Python SDK docs
-      'python'     : ( 'http://docs.python.org/2/', None )
-
-    # Agoraplex package docs
-    , 'annotation' : ( '../annotation' , '../../annotation/docs/_build/html/objects.inv' )
-    , 'capsec'     : ( '../capsec'     , '../../capsec/docs/_build/html/objects.inv' )
-    , 'schema'     : ( '../schema'     , '../../schema/docs/_build/html/objects.inv' )
+    'python'     : ( 'http://docs.python.org/2/', None ),
 }
+
+def map_rtfd_subprojects (urls, project, subprojects, lang='en', version='latest'):
+    """
+    Generic helper to map Intersphinx inventories for a
+    ReadTheDocs.org project and its sub-projects.
+
+    **TODO:** move this into our shared Sphinx helpers
+    """
+    def urlfor (url, subproject=None, lang=lang, version=version, project=project):
+        return url % locals()
+
+    # map all of the sub-projects
+    mapping = dict((subproject, (urlfor(urls['subproject'], subproject), None))
+                for subproject in subprojects)
+
+    # map the project itself
+    mapping[project] = (urlfor(urls['project'], project=project), None)
+
+    return mapping
+
+rtfd_urls = {
+    'project': 'http://docs.agoraplex.net/%(lang)s/%(version)s',
+    'subproject': 'http://docs.agoraplex.net/projects/%(subproject)s/%(lang)s/%(version)s',
+    }
+
+# Intersphinx the Agoraplex platform docs
+project = 'agoraplex'
+subprojects = ('predicates',)
+intersphinx_mapping.update(map_rtfd_subprojects(rtfd_urls, project, subprojects))
 
 autodoc_default_flags = ['members', 'undoc-members']
 add_module_names = False
