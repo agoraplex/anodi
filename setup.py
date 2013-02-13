@@ -18,7 +18,6 @@ requirements = {
         },
     }
 
-
 # write requirements for Travis and ReadTheDocs to use...
 with open("reqs/travis.txt", "w") as travis:
     travis.write('\n'.join(requirements['extras']['tests']) + '\n')
@@ -34,10 +33,22 @@ setup(
     packages=['agoraplex.annotation'],
     namespace_packages=['agoraplex'],
     url='',
+
     license='BSD',
-    description='',
+    description='A decorater-based backport of PEP-3107 function annotations to Python 2.7, and related tools',
     long_description=open('README.rst').read(),
+
     install_requires=requirements.get('install', None),
     tests_require=requirements.get('extras', {}).get('tests', None),
     extras_require=requirements.get('extras', None),
+
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 2.7",
+        "Topic :: Documentation",
+        "Topic :: Software Development :: Documentation",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        ]
 )
