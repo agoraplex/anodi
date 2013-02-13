@@ -2,7 +2,7 @@
  `anodi`: The `Agoraplex` Annotations Toolkit
 ==============================================
 
-`anodi` [#etymology]_ is a decorater-based backport of :pep:`3107`,
+`anodi` [#etymology]_ is a decorator-based backport of :pep:`3107`,
 function annotations, to Python 2.7, along with a limited set of
 :mod:`~anodi.tools` based on those annotations (e.g.,
 :func:`~anodi.tools.document`, which hoists annotations into the

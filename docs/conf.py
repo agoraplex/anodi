@@ -232,7 +232,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
   ('index', 'anodi', u'anodi Documentation',
-   u'Tripp Lilley', 'anodi', 'One line description of project.',
+   u'Tripp Lilley', 'anodi', 'A decorater-based backport of PEP-3107 function annotations to Python 2.7, and related tools.',
    'Miscellaneous'),
 ]
 

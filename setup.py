@@ -32,8 +32,7 @@ setup(
     author_email='tripplilley@gmail.com',
     packages=['anodi'],
     namespace_packages=[],
-    url='',
-
+    url='https://github.com/agoraplex/anodi',
     license='BSD',
     description='A decorater-based backport of PEP-3107 function annotations to Python 2.7, and related tools',
     long_description=open('README.rst').read(),
