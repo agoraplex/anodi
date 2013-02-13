@@ -16,7 +16,9 @@ docstring, for the `Sphinx`__ `autodoc`__ extension to find).
 .. __: http://blogs.roanoke.com/theburgs/news/2012/03/11/brigss-work-can-be-found-on-an-iphone/
 
 
-.. [#etymology] The Welsh for `annotation` is `anodi` (according to
+.. [#etymology]
+
+   **Etymology:** The Welsh for `annotation` is `anodi` (according to
    `Google Translate`__). It won out over translations to other
    languages because it's short, and phonetically (and, thus,
    mnemonically), related. It's also a tribute to my friend, `Allen
