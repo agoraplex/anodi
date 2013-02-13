@@ -6,6 +6,9 @@
 Welcome to Agoraplex Annotations's documentation!
 =================================================
 
+`anodi` is licensed under the BSD "3-clause" license. See
+:doc:`LICENSE` for details.
+
 Contents:
 
 .. toctree::
@@ -21,3 +24,11 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+
+.. add misc docs to a hidden toc to avoid warnings (a trick borrowed
+   from Pyramid docs)
+
+.. toctree::
+   :hidden:
+
+   LICENSE

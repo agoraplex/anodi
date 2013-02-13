@@ -12,7 +12,7 @@ setup(
     packages=['agoraplex.annotation'],
     namespace_packages=['agoraplex'],
     url='',
-    license='See LICENSE',
+    license='BSD',
     description='',
     long_description=open('README.rst').read(),
     tests_require=['nose'],
