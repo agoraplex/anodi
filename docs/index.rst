@@ -3,6 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. _index:
+
 ==============================================
  `anodi`: The `Agoraplex` Annotations Toolkit
 ==============================================
@@ -20,12 +22,26 @@ extension to find).
 .. __: http://sphinx-doc.org/
 .. __: http://sphinx-doc.org/ext/autodoc.html
 
-Contents:
+
+.. _motivation:
+
+Motivation and applications
+---------------------------
+
+**TODO:** something goes here.
+
+
+.. _html_api_documentation:
+
+API Documentation
+=================
+
+Documentation for every :mod:`~agoraplex.annotation` API.
 
 .. toctree::
    :maxdepth: 2
 
-   api.rst
+   api
 
 
 Indices and tables
