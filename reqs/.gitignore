@@ -1,2 +1,3 @@
 *.txt
+!rtfd.txt
 !.gitignore

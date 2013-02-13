@@ -1,0 +1,2 @@
+sphinx>=1.1
+agoraplex.themes.sphinx>=0.1.3
