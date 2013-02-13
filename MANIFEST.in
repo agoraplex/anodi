@@ -1,3 +1,2 @@
-include distribute_setup.py
 include *.rst
 prune dist
