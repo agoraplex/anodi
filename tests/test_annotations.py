@@ -1,4 +1,4 @@
-from agoraplex.annotation import annotated, returns, empty
+from anodi import annotated, returns, empty
 
 # ___TODO:___ use one of the structural comparison packages to
 # validate the output (__defaults__, __annotations__) declaratively,

@@ -11,10 +11,9 @@
 
 `anodi` [#etymology]_ is a decorater-based backport of :pep:`3107`,
 function annotations, to Python 2.7, along with a limited set of
-:mod:`~agoraplex.annotation.tools` based on those annotations (e.g.,
-:func:`~agoraplex.annotation.tools.document`, which hoists
-annotations into the docstring, for the `Sphinx`__ `autodoc`__
-extension to find).
+:mod:`~anodi.tools` based on those annotations (e.g.,
+:func:`~anodi.tools.document`, which hoists annotations into the
+docstring, for the `Sphinx`__ `autodoc`__ extension to find).
 
 `anodi` is licensed under the BSD "3-clause" license. See
 :doc:`LICENSE` for details.
@@ -36,7 +35,7 @@ Motivation and applications
 API Documentation
 =================
 
-Documentation for every :mod:`~agoraplex.annotation` API.
+Documentation for every :mod:`~anodi` API.
 
 .. toctree::
    :maxdepth: 2

@@ -1,5 +1,5 @@
 from backports import inspect
-from agoraplex.annotation import annotated, empty
+from anodi import annotated, empty
 import re
 
 _typenames = {}

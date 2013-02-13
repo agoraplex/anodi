@@ -4,10 +4,9 @@
 
 `anodi` [#etymology]_ is a decorater-based backport of :pep:`3107`,
 function annotations, to Python 2.7, along with a limited set of
-:mod:`~agoraplex.annotation.tools` based on those annotations (e.g.,
-:func:`~agoraplex.annotations.tools.document`, which hoists
-annotations into the docstring, for the `Sphinx`__ `autodoc`__
-extension to find).
+:mod:`~anodi.tools` based on those annotations (e.g.,
+:func:`~anodi.tools.document`, which hoists annotations into the
+docstring, for the `Sphinx`__ `autodoc`__ extension to find).
 
 .. __: http://sphinx-doc.org/
 .. __: http://sphinx-doc.org/ext/autodoc.html

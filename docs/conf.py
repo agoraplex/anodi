@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Agoraplex Annotations documentation build configuration file, created by
+# anodi documentation build configuration file, created by
 # sphinx-quickstart2 on Fri Jan 11 10:39:10 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -42,7 +42,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Agoraplex Annotations'
+project = u'anodi'
 copyright = u'2013, Tripp Lilley'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -168,7 +168,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'AgoraplexAnnotationsdoc'
+htmlhelp_basename = 'anodidoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -187,7 +187,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'AgoraplexAnnotations.tex', u'Agoraplex Annotations Documentation',
+  ('index', 'anodi.tex', u'anodi Documentation',
    u'Tripp Lilley', 'manual'),
 ]
 
@@ -217,7 +217,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'agoraplexannotations', u'Agoraplex Annotations Documentation',
+    ('index', 'anodi', u'anodi Documentation',
      [u'Tripp Lilley'], 1)
 ]
 
@@ -231,8 +231,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'AgoraplexAnnotations', u'Agoraplex Annotations Documentation',
-   u'Tripp Lilley', 'AgoraplexAnnotations', 'One line description of project.',
+  ('index', 'anodi', u'anodi Documentation',
+   u'Tripp Lilley', 'anodi', 'One line description of project.',
    'Miscellaneous'),
 ]
 

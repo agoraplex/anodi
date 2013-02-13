@@ -1,5 +1,5 @@
-from agoraplex.annotation import annotated, returns, empty
-from agoraplex.annotation.tools import document, typename
+from anodi import annotated, returns, empty
+from anodi.tools import document, typename
 
 class TestDocumentationDecorator (object):
     def test_without_params_without_annotations_with_docstring (self):

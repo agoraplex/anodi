@@ -1,10 +1,10 @@
-:mod:`agoraplex.annotation`
----------------------------
+:mod:`anodi`
+------------
 
-.. automodule:: agoraplex.annotation
+.. automodule:: anodi
 
 
-:mod:`agoraplex.annotation.tools`
----------------------------------
+:mod:`anodi.tools`
+------------------
 
-.. automodule:: agoraplex.annotation.tools
+.. automodule:: anodi.tools

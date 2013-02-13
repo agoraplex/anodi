@@ -26,12 +26,12 @@ with open("reqs/rtfd.txt", "w") as rtfd:
     rtfd.write('\n'.join(requirements['extras']['docs']) + '\n')
 
 setup(
-    name='agoraplex.annotation',
+    name='anodi',
     version='0.0.0',
     author='Tripp Lilley',
     author_email='tripplilley@gmail.com',
-    packages=['agoraplex.annotation'],
-    namespace_packages=['agoraplex'],
+    packages=['anodi'],
+    namespace_packages=[],
     url='',
 
     license='BSD',

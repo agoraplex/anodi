@@ -1,4 +1,4 @@
-# agoraplex.annotation
+# anodi
 from backports import inspect
 empty = inspect.Signature.empty
 
@@ -7,7 +7,7 @@ def returns (annotation):
     Decorator to add ``annotation`` to ``func``'s ``return``
     annotation, as though it were a Python 3 ``-> ...`` annotation.
 
-        >>> from agoraplex.annotation import returns
+        >>> from anodi import returns
         >>> @returns(int)
         ... def example ():
         ...    pass
@@ -57,7 +57,7 @@ def annotated (func=None, returns=empty):
 
     Example:
 
-        >>> from agoraplex.annotation import annotated, empty
+        >>> from anodi import annotated, empty
         >>> @annotated
         ... def example (a, b, c=(int,), d=(), e=(empty, "hi")):
         ...    pass
