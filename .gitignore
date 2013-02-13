@@ -1,2 +1,11 @@
+*.egg
 *.egg-info
+*.tar.gz
+*.tar.bz2
 .coverage
+build/
+cover/
+dist/
+htmlcov/
+venv/
+!.gitignore
