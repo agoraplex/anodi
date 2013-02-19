@@ -3,6 +3,7 @@ from setuptools import setup
 requirements = {
     'install': [
         'distribute',
+        'backports.inspect>=0.0.2',
         ],
     'extras': {
         'docs': [
