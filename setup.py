@@ -28,7 +28,7 @@ with open("reqs/rtfd.txt", "w") as rtfd:
 
 setup(
     name='anodi',
-    version='0.0.1',
+    version='0.0.2',
     author='Tripp Lilley',
     author_email='tripplilley@gmail.com',
     packages=['anodi'],
