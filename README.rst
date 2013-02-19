@@ -2,12 +2,13 @@
  `anodi`: The `Agoraplex` Annotations Toolkit
 ==============================================
 
-`anodi` [#etymology]_ is a decorator-based backport of :pep:`3107`,
-function annotations, to Python 2.7, along with a limited set of
-:mod:`~anodi.tools` based on those annotations (e.g.,
-:func:`~anodi.tools.document`, which hoists annotations into the
-docstring, for the `Sphinx`__ `autodoc`__ extension to find).
+`anodi` [#etymology]_ is a decorator-based backport of `PEP 3107`__,
+function annotations, to Python 2.7, along with a limited set of tools
+based on those annotations (e.g., `anodi.tools.document`, which hoists
+annotations into the docstring, for the `Sphinx`__ `autodoc`__
+extension to find).
 
+.. __: http://www.python.org/dev/peps/pep-3107/
 .. __: http://sphinx-doc.org/
 .. __: http://sphinx-doc.org/ext/autodoc.html
 .. __: http://translate.google.com/#en/cy/annotation
@@ -17,7 +18,6 @@ docstring, for the `Sphinx`__ `autodoc`__ extension to find).
 
 
 .. [#etymology]
-
    **Etymology:** The Welsh for `annotation` is `anodi` (according to
    `Google Translate`__). It won out over translations to other
    languages because it's short, and phonetically (and, thus,
