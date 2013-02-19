@@ -8,6 +8,7 @@ branches:
     - master
 
 install:
+  - pip install 'distribute>=0.6.34'
   - pip install -e . --use-mirrors
   - pip install -r reqs/travis.txt --use-mirrors
 
