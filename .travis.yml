@@ -9,7 +9,7 @@ branches:
 
 install:
   - pip install 'distribute>=0.6.34' --use-mirrors
-  - pip install -e .
+  - pip install -e . --use-mirrors
   - pip install -r reqs/travis.txt --use-mirrors
 
 script:
